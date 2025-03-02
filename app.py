@@ -5,7 +5,7 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 import io
-
+import os
 # import requests
 
 app = Flask(__name__)
@@ -62,7 +62,8 @@ def disease_recognition():
     return render_template('disease_recognition.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+   port = int(os.environ.get("PORT", 5000))
+   app.run(host="0.0.0.0", port=port)
 
 
 
