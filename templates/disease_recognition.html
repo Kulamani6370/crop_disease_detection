@@ -1,0 +1,149 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disease_Detection</title>
+  </head>
+  <body>
+    <h1>Upload Plant Image for Disease Recognition</h1>
+    <form method="POST" enctype="multipart/form-data">
+      <input
+        type="file"
+        name="image"
+        accept="image/*"
+        required
+        placeholder="image"
+      />
+      <button type="submit">Predict</button>
+    </form>
+    <a href="/">Back to Home</a>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disease_Detection</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: #28a745;
+        padding: 1rem;
+        color: white;
+        text-align: center;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        background-color: #333;
+        padding: 0.5rem 1rem;
+        align-items: center;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 0.5rem;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        flex: 1;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      form {
+        margin-top: 2rem;
+      }
+
+      input[type="file"] {
+        margin-bottom: 1rem;
+      }
+
+      button {
+        background-color: #28a745;
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+        display: block;
+        margin-top: 1rem;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 600px) {
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        nav a {
+          margin: 0.5rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Plant Disease Detection System</h1>
+    </header>
+
+    <main>
+      <h1>Upload Plant Image for Disease Recognition</h1>
+      <form method="POST" enctype="multipart/form-data">
+        <input
+          type="file"
+          name="image"
+          accept="image/*"
+          required
+          placeholder="image"
+        />
+        <button type="submit">Predict</button>
+      </form>
+      <a href="/">Back to Home</a>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Disease Detection Platform. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
