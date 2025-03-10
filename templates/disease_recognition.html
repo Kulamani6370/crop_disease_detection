@@ -33,91 +33,160 @@
         box-sizing: border-box;
       }
 
+      /* General Styles */
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Arial", sans-serif;
+        background-color: #f4f7f6;
+        margin: 0;
+        padding: 0;
         display: flex;
         flex-direction: column;
+        align-items: center;
         min-height: 100vh;
       }
 
+      /* Header */
       header {
-        background-color: #28a745;
-        padding: 1rem;
+        background: #4caf50;
         color: white;
         text-align: center;
+        padding: 12px;
+        width: 100%;
+        font-size: 10px;
+        font-weight: bold;
+        position: sticky;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
-      nav {
+      /* Main Container */
+      .main-container {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+      }
+
+      /* Title */
+      .title {
+        color: #333;
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+
+      /* Form Container */
+      .form-container {
         display: flex;
-        justify-content: space-between;
-        background-color: #333;
-        padding: 0.5rem 1rem;
-        align-items: center;
+        flex-direction: column;
+        gap: 10px;
       }
 
-      nav a {
-        color: white;
-        text-decoration: none;
-        margin: 0 0.5rem;
-      }
-
-      nav a:hover {
-        text-decoration: underline;
-      }
-
-      main {
-        flex: 1;
-        padding: 2rem;
-        text-align: center;
-      }
-
-      footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 1rem;
-      }
-
-      form {
-        margin-top: 2rem;
-      }
-
-      input[type="file"] {
-        margin-bottom: 1rem;
-      }
-
-      button {
-        background-color: #28a745;
-        color: white;
-        padding: 0.5rem 1rem;
-        border: none;
+      /* File Input */
+      #imageInput {
+        border: 2px dashed #4caf50;
+        padding: 10px;
+        border-radius: 8px;
+        background: #f9f9f9;
         cursor: pointer;
-        border-radius: 5px;
+        outline: none;
+        transition: all 0.3s ease;
       }
 
-      button:hover {
-        background-color: #218838;
+      #imageInput:hover {
+        border-color: #388e3c;
       }
 
+      /* Button */
+      .btn {
+        background: #4caf50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        background: #388e3c;
+      }
+
+      /* Image Preview */
+      .img {
+        display: none;
+        width: 100%;
+        max-width: 300px;
+        height: 200px;
+        margin-top: 15px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Result Text */
+      #resultText {
+        font-size: 14px;
+        color: #333;
+        margin-top: 15px;
+      }
+
+      /* Links */
+      .links {
+        display: flex;
+        flex-direction: column;
+      }
       a {
-        color: #007bff;
-        text-decoration: none;
-        display: block;
-        margin-top: 1rem;
+        display: inline-block;
+        text-decoration: underline;
+        color: #4caf50;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: all 0.3s ease;
       }
 
       a:hover {
-        text-decoration: underline;
+        color: #0e5312;
       }
 
-      @media (max-width: 600px) {
-        nav {
-          flex-direction: column;
-          align-items: flex-start;
+      /* Footer */
+      footer {
+        background: #4caf50;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 14px;
+        width: 100%;
+        margin-top: auto;
+        bottom: 0;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 500px) {
+        .main-container {
+          width: 95%;
+          padding: 15px;
         }
 
-        nav a {
-          margin: 0.5rem 0;
+        .title {
+          font-size: 20px;
+        }
+
+        .btn {
+          font-size: 14px;
+        }
+
+        #resultText {
+          font-size: 16px;
+        }
+
+        footer {
+          font-size: 12px;
+          padding: 10px;
         }
       }
     </style>
@@ -127,20 +196,78 @@
       <h1>Plant Disease Detection System</h1>
     </header>
 
-    <main>
-      <h1>Upload Plant Image for Disease Recognition</h1>
-      <form method="POST" enctype="multipart/form-data">
+    <main class="main-container">
+      <h1 class="title">Upload Plant Image for Disease Recognition</h1>
+      <form
+        id="uploadForm"
+        enctype="multipart/form-data"
+        class="form-container"
+      >
         <input
           type="file"
           name="image"
           accept="image/*"
+          placeholder="upload an Image"
           required
-          placeholder="image"
+          id="imageInput"
         />
-        <button type="submit">Predict</button>
+        <button type="submit" class="btn">Predict</button>
       </form>
-      <a href="/">Back to Home</a>
+
+      <!-- Result Section -->
+      <h2 id="resultText"></h2>
+      <!-- Image Preview -->
+      <img id="imagePreview" src="" alt="Image Preview" class="img" />
+      <div class="links">
+        <a href="/disease_recognition">Try another image</a>
+        <a href="/">Back to Home</a>
+      </div>
     </main>
+
+    <script>
+      document
+        .getElementById("imageInput")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const preview = document.getElementById("imagePreview");
+              preview.src = e.target.result;
+              preview.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+
+      document
+        .getElementById("uploadForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+          const formData = new FormData();
+          const fileInput = document.getElementById("imageInput").files[0];
+          if (!fileInput) {
+            alert("Please select an image.");
+            return;
+          }
+          formData.append("image", fileInput);
+
+          fetch("/disease_recognition", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json()) // Expect JSON response
+            .then((data) => {
+              if (data.result) {
+                document.getElementById("resultText").textContent =
+                  "Predicted Disease: " + data.result;
+                document.getElementById("resultText").style.display = "block";
+              }
+            })
+            .catch((error) => console.error("Error:", error));
+        });
+    </script>
 
     <footer>
       <p>&copy; 2025 Disease Detection Platform. All Rights Reserved.</p>

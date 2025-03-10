@@ -57,7 +57,8 @@ def disease_recognition():
                           'Tomato___Target_Spot', 'Tomato___Tomato_Yellow_Leaf_Curl_Virus', 'Tomato___Tomato_mosaic_virus',
                           'Tomato___healthy']
             result = class_name[result_index]
-            return render_template('result.html', result=result)
+            # return render_template('result.html', result=result)
+            return jsonify({'result':result})
 
     return render_template('disease_recognition.html')
 

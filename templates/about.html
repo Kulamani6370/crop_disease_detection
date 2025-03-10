@@ -13,3 +13,36 @@
     <a href="/">Back to Home</a>
   </body>
 </html>
+
+<!-- <main>
+      <h1>Upload Plant Image for Disease Recognition</h1>
+      <form method="POST" enctype="multipart/form-data">
+        <input
+          type="file"
+          name="image"
+          accept="image/*"
+          required
+          placeholder="image"
+          id="imageInput"
+        />
+        <button type="submit">Predict</button>
+      </form>
+      <img id="imagePreview" src="" alt="Image Preview" />
+      <a href="/">Back to Home</a>
+    </main>
+    <script>
+      document
+        .getElementById("imageInput")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const preview = document.getElementById("imagePreview");
+              preview.src = e.target.result;
+              preview.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+    </script> -->
